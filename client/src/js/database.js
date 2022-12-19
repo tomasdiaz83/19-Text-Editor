@@ -36,12 +36,12 @@ export const getDb = async () => {
   
   const store = tx.objectStore('jate');
 
-  const request = store.getAll(1);
+  const request = store.getAll();
 
   const result = await request;
   if (result) {
     console.log('Content loaded from the DB', result);
-    return result;
+    return result.value;
   } else {
     console.log('Content not found');
   }
